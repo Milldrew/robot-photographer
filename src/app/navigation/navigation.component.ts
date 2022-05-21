@@ -22,4 +22,5 @@ export class NavigationComponent {
     private getPhotos: GetPhotosService
   ) {}
   deviceInfo = this.getPhotos.deviceInfo;
+  hashTag = '#';
 }

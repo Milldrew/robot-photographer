@@ -3,6 +3,31 @@
   justify-content: center;
   margin: 100px 100px;
 }
+
+mat-card-header {
+  width: 80%;
+}
+img {
+  display: block;
+  max-width: 80%;
+  max-height: 500px;
+  width: auto;
+  height: auto;
+  margin: {
+    right: 0px;
+    left: 0px;
+  }
+}
+
 mat-card {
-  width: 40%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: {
+    right: 0px;
+    left: 0px;
+    bottom: 40px;
+    top: 40px;
+  }
 }

@@ -1,9 +1,15 @@
 <mat-card>
-  <mat-card-header> </mat-card-header>
-  <mat-card-title>{{ deviceInfo.name }}</mat-card-title>
-  <mat-card-subtitle>Screen Dimensions</mat-card-subtitle>
+  <mat-card-header>
+    <mat-card-title>{{ deviceInfo.name }}</mat-card-title>
+    <mat-card-subtitle>Screen Dimensions</mat-card-subtitle>
+  </mat-card-header>
   <mat-card-content> </mat-card-content>
-  <img mat-card-image [src]="imageUrl" alt="screen-shot" />
+  <img
+    [class.mat-elevation-z5]="true"
+    mat-card-image
+    [src]="imageUrl"
+    alt="screen-shot"
+  />
   <mat-card-actions>
     <button color="primary" mat-raised-button>View Photo</button>
     <button color="accent" mat-raised-button>Download Photo</button>
