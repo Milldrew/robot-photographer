@@ -18,7 +18,7 @@ export class CreatePhotosService {
     console.log(photoShootUrl);
     this.http
       .post(
-        `${this.getPhotos.basseUrl}photographer`,
+        `${this.getPhotos.baseUrl}photographer`,
         { url: photoShootUrl },
         { headers: this.httpOptions }
       )

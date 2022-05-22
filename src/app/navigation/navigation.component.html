@@ -32,7 +32,7 @@
       <span>Robot Photographer</span>
     </mat-toolbar>
     <!-- Add Content Here -->
-    <app-url-input> </app-url-input>
+    <app-url-input (newPhotoShoot)="getNewPhotos()"> </app-url-input>
     <app-photo-container
       [id]="singleDeviceInfo.fileName"
       *ngFor="let singleDeviceInfo of deviceInfo"

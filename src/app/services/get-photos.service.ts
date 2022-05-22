@@ -29,6 +29,6 @@ export class GetPhotosService {
     { fileName: 'i-phone-se.png', name: 'I Phone SE' },
   ];
 
-  basseUrl = 'http://192.168.0.143:3000/';
+  baseUrl = 'http://192.168.0.143:3000/';
   constructor() {}
 }

@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
 import { GetPhotosService } from '../services/get-photos.service';
+import { PhotoContainerComponent } from './photo-container/photo-container.component';
 
 @Component({
   selector: 'app-navigation',
@@ -16,6 +17,7 @@ export class NavigationComponent {
       map((result) => result.matches),
       shareReplay()
     );
+  @ViewChild(PhotoContainerComponent) photos: PhotoContainerComponent;
 
   constructor(
     private breakpointObserver: BreakpointObserver,
@@ -23,4 +25,8 @@ export class NavigationComponent {
   ) {}
   deviceInfo = this.getPhotos.deviceInfo;
   hashTag = '#';
+  getNewPhotos() {
+    this.photos.reRender();
+    this.deviceInfo = this.getPhotos.deviceInfo;
+  }
 }
