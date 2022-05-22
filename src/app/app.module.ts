@@ -16,6 +16,7 @@ import { MatListModule } from '@angular/material/list';
 import { PhotoContainerComponent } from './navigation/photo-container/photo-container.component';
 import { UrlInputComponent } from './navigation/url-input/url-input.component';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { FormsModule } from '@angular/forms';
     UrlInputComponent,
   ],
   imports: [
+    HttpClientModule,
     MatInputModule,
     MatCardModule,
     BrowserModule,
