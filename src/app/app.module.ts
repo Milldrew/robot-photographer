@@ -1,3 +1,4 @@
+import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -13,10 +14,18 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { PhotoContainerComponent } from './navigation/photo-container/photo-container.component';
+import { UrlInputComponent } from './navigation/url-input/url-input.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
-  declarations: [AppComponent, NavigationComponent, PhotoContainerComponent],
+  declarations: [
+    AppComponent,
+    NavigationComponent,
+    PhotoContainerComponent,
+    UrlInputComponent,
+  ],
   imports: [
+    MatInputModule,
     MatCardModule,
     BrowserModule,
     AppRoutingModule,
@@ -27,6 +36,7 @@ import { PhotoContainerComponent } from './navigation/photo-container/photo-cont
     MatSidenavModule,
     MatIconModule,
     MatListModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
