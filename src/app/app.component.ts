@@ -11,6 +11,6 @@ export class AppComponent {
   constructor(private readonly createPhotos: CreatePhotosService) {}
 
   ngOnInit() {
-    this.createPhotos.startPhotoShoot('www.example.com');
+    this.createPhotos.startPhotoShoot('https://google.com');
   }
 }
