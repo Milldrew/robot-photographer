@@ -15,11 +15,12 @@ export class PhotoContainerComponent implements OnInit {
     private changeDetection: ChangeDetectorRef
   ) {}
   public reRender() {
+    console.log(`rerender`);
     setTimeout(() => {
       this.imageUrl = `${this.getPhotos.baseUrl}${
         this.deviceInfo.fileName
       }?${Date.now()}`;
-    }, 10000);
+    }, 23000);
   }
   ngOnChanges() {
     setTimeout(() => {
@@ -29,6 +30,8 @@ export class PhotoContainerComponent implements OnInit {
     }, 10000);
   }
   ngOnInit(): void {
-    this.imageUrl = `${this.getPhotos.baseUrl}${this.deviceInfo.fileName}`;
+    this.imageUrl = `${this.getPhotos.baseUrl}${
+      this.deviceInfo.fileName
+    }?${Date.now()}`;
   }
 }
