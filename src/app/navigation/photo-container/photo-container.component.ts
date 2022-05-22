@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, Input, OnInit } from '@angular/core';
 import { GetPhotosService } from '../../services/get-photos.service';
 
 @Component({
@@ -10,11 +10,25 @@ export class PhotoContainerComponent implements OnInit {
   @Input()
   deviceInfo: any;
   imageUrl: string;
-  constructor(private readonly getPhotos: GetPhotosService) {}
-  ngOnChanges() {
+  constructor(
+    private readonly getPhotos: GetPhotosService,
+    private changeDetection: ChangeDetectorRef
+  ) {}
+  public reRender() {
     setTimeout(() => {
-      this.imageUrl = `${this.getPhotos.baseUrl}${this.deviceInfo.fileName}`;
+      this.imageUrl = `${this.getPhotos.baseUrl}${
+        this.deviceInfo.fileName
+      }?${Date.now()}`;
     }, 10000);
   }
-  ngOnInit(): void {}
+  ngOnChanges() {
+    setTimeout(() => {
+      this.imageUrl = `${this.getPhotos.baseUrl}${
+        this.deviceInfo.fileName
+      }?${Date.now()}`;
+    }, 10000);
+  }
+  ngOnInit(): void {
+    this.imageUrl = `${this.getPhotos.baseUrl}${this.deviceInfo.fileName}`;
+  }
 }
