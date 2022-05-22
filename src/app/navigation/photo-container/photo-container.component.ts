@@ -13,7 +13,7 @@ export class PhotoContainerComponent implements OnInit {
   constructor(private readonly getPhotos: GetPhotosService) {}
   ngOnChanges() {
     setTimeout(() => {
-      this.imageUrl = `${this.getPhotos.basseUrl}${this.deviceInfo.fileName}`;
+      this.imageUrl = `${this.getPhotos.baseUrl}${this.deviceInfo.fileName}`;
     }, 10000);
   }
   ngOnInit(): void {}
