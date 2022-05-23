@@ -10,8 +10,8 @@ mat-card-header {
 img {
   display: block;
   min-width: 30%;
-  max-width: 80%;
-  max-height: 70vh;
+  max-width: 90%;
+  max-height: 90vh;
   width: auto;
   height: auto;
   margin: {
@@ -42,5 +42,9 @@ a {
   width: 100%;
 }
 button {
+  width: 100%;
+}
+mat-card {
+  height: 100%;
   width: 100%;
 }
