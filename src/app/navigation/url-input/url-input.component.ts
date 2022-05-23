@@ -8,6 +8,7 @@ import { GetPhotosService } from 'src/app/services/get-photos.service';
   styleUrls: ['./url-input.component.scss'],
 })
 export class UrlInputComponent implements OnInit {
+  photoShootInProgress: boolean;
   @Output()
   newPhotoShoot: EventEmitter<any>;
   url: string = '';
@@ -15,13 +16,26 @@ export class UrlInputComponent implements OnInit {
     private readonly getPhotos: GetPhotosService,
     private readonly takePhotos: CreatePhotosService
   ) {
+    this.photoShootInProgress = takePhotos.getPhotoShootInProgress();
     this.newPhotoShoot = new EventEmitter<any>();
   }
 
   ngOnInit(): void {}
 
   createPhotos() {
+    this.photoShootInProgress = true;
     this.newPhotoShoot.emit('get new photos');
-    this.takePhotos.startPhotoShoot(this.url);
+    this.takePhotos.startPhotoShoot(this.url).subscribe(
+      (payload: any) => {
+        console.log(payload);
+        this.takePhotos.endPhotoShoot();
+        this.photoShootInProgress = this.takePhotos.getPhotoShootInProgress();
+      },
+      (error) => {
+        console.error(error);
+        this.takePhotos.endPhotoShoot();
+        this.photoShootInProgress = this.takePhotos.getPhotoShootInProgress();
+      }
+    );
   }
 }

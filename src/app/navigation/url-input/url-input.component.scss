@@ -12,3 +12,20 @@ mat-card {
 mat-form-field {
   width: 100%;
 }
+
+mat-progress-spinner {
+  margin: {
+    left: 10px;
+  }
+}
+
+mat-card-footer {
+  display: flex;
+}
+mat-button {
+  padding: 30px;
+}
+
+div {
+  display: flex;
+}

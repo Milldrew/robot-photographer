@@ -16,7 +16,16 @@
       <mat-icon>close</mat-icon>
     </button>
   </mat-form-field>
-  <button (click)="createPhotos()" mat-raised-button color="primary">
-    Shoot Photos
-  </button>
+  <div>
+    <button (click)="createPhotos()" mat-raised-button color="primary">
+      Shoot Photos
+    </button>
+    <mat-progress-spinner
+      *ngIf="photoShootInProgress"
+      color="accent"
+      mode="indeterminate"
+      diameter="30"
+    >
+    </mat-progress-spinner>
+  </div>
 </mat-card>
