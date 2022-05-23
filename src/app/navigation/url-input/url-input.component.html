@@ -2,6 +2,7 @@
   <mat-form-field appearacne="fill">
     <mat-label>URL Link</mat-label>
     <input
+      (keyup.enter)="createPhotos()"
       placeholder="www.example.com"
       matInput
       type="text"
