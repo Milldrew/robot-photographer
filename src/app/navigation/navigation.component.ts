@@ -26,7 +26,6 @@ export class NavigationComponent {
   deviceInfo = this.getPhotos.deviceInfo;
   hashTag = '#';
   getNewPhotos() {
-    this.photos.reRender();
-    this.deviceInfo = this.getPhotos.deviceInfo;
+    this.deviceInfo = this.getPhotos.deviceInfo.map((info) => ({ ...info }));
   }
 }
