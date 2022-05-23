@@ -11,7 +11,8 @@
     alt="screen-shot"
   />
   <mat-card-actions>
-    <button color="primary" mat-raised-button>View Photo</button>
-    <button color="accent" mat-raised-button>Download Photo</button>
+    <a target="_blank" [href]="imageUrl">
+      <button color="primary" mat-raised-button>View Photo</button>
+    </a>
   </mat-card-actions>
 </mat-card>

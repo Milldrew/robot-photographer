@@ -32,3 +32,15 @@ mat-card {
     top: 40px;
   }
 }
+
+mat-card-actions {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+}
+a {
+  width: 100%;
+}
+button {
+  width: 100%;
+}
