@@ -7,6 +7,7 @@ import { GetPhotosService } from './get-photos.service';
   providedIn: 'root',
 })
 export class CreatePhotosService {
+  photoShootInProgress = false;
   constructor(
     private readonly getPhotos: GetPhotosService,
     private readonly http: HttpClient
@@ -15,14 +16,19 @@ export class CreatePhotosService {
   httpOptions = new HttpHeaders({ 'Content-Type': 'application/json' });
 
   startPhotoShoot(photoShootUrl: string) {
+    this.photoShootInProgress = true;
     console.log(photoShootUrl);
-    this.http
-      .post(
-        `${this.getPhotos.baseUrl}photographer`,
-        { url: photoShootUrl },
-        { headers: this.httpOptions }
-      )
-      .pipe(tap(() => console.log('successful photoshoot')))
-      .subscribe(() => console.log('request sent'));
+    return this.http.post(
+      `${this.getPhotos.baseUrl}photographer`,
+      { url: photoShootUrl },
+      { headers: this.httpOptions }
+    );
+  }
+
+  endPhotoShoot() {
+    this.photoShootInProgress = false;
+  }
+  getPhotoShootInProgress() {
+    return this.photoShootInProgress;
   }
 }
