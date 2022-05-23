@@ -24,12 +24,12 @@ export class UrlInputComponent implements OnInit {
 
   createPhotos() {
     this.photoShootInProgress = true;
-    this.newPhotoShoot.emit('get new photos');
     this.takePhotos.startPhotoShoot(this.url).subscribe(
       (payload: any) => {
         console.log(payload);
         this.takePhotos.endPhotoShoot();
         this.photoShootInProgress = this.takePhotos.getPhotoShootInProgress();
+        this.newPhotoShoot.emit('get new photos');
       },
       (error) => {
         console.error(error);
