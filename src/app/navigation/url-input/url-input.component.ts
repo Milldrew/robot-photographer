@@ -1,4 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { CreatePhotosService } from 'src/app/services/create-photos.service';
 import { GetPhotosService } from 'src/app/services/get-photos.service';
 
@@ -13,6 +14,7 @@ export class UrlInputComponent implements OnInit {
   newPhotoShoot: EventEmitter<any>;
   url: string = '';
   constructor(
+    private _snackBar: MatSnackBar,
     private readonly getPhotos: GetPhotosService,
     private readonly takePhotos: CreatePhotosService
   ) {
@@ -33,6 +35,13 @@ export class UrlInputComponent implements OnInit {
       },
       (error) => {
         console.error(error);
+        this._snackBar.open(
+          'Invalid URL remember to add http:// or https://',
+          'DISMISS'
+        );
+        setTimeout(() => {
+          this._snackBar.dismiss();
+        }, 7000);
         this.takePhotos.endPhotoShoot();
         this.photoShootInProgress = this.takePhotos.getPhotoShootInProgress();
       }
