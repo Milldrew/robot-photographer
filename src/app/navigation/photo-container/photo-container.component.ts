@@ -14,16 +14,9 @@ export class PhotoContainerComponent implements OnInit {
     private readonly getPhotos: GetPhotosService,
     private changeDetection: ChangeDetectorRef
   ) {}
-  public reRender() {
-    console.log(`rerender`);
-    setTimeout(() => {
-      this.imageUrl = `${this.getPhotos.baseUrl}${
-        this.deviceInfo.fileName
-      }?${Date.now()}`;
-    }, 1);
-  }
+
   ngOnInit(): void {
-    setInterval(() => {
+    const intervalId = setInterval(() => {
       this.imageUrl = `${this.getPhotos.baseUrl}${
         this.deviceInfo.fileName
       }?${Date.now()}`;
@@ -31,5 +24,8 @@ export class PhotoContainerComponent implements OnInit {
     this.imageUrl = `${this.getPhotos.baseUrl}${
       this.deviceInfo.fileName
     }?${Date.now()}`;
+    setTimeout(() => {
+      clearInterval(intervalId);
+    }, 10000);
   }
 }
