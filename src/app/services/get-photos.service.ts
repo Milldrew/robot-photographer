@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root',
@@ -29,6 +30,6 @@ export class GetPhotosService {
     { fileName: 'i-phone-se.png', name: 'I Phone SE' },
   ];
 
-  baseUrl = 'https://app-davzxh5bwq-uc.a.run.app/';
+  baseUrl = environment.baseUrl;
   constructor() {}
 }

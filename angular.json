@@ -52,6 +52,15 @@
               ],
               "outputHashing": "all"
             },
+            "local": {
+              "outputPath": "../docs",
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.local.ts"
+                }
+              ]
+            },
             "development": {
               "buildOptimizer": false,
               "optimization": false,
