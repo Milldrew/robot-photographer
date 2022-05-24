@@ -28,7 +28,6 @@ export class UrlInputComponent implements OnInit {
     this.photoShootInProgress = true;
     this.takePhotos.startPhotoShoot(this.url).subscribe(
       (payload: any) => {
-        console.log(payload);
         this.takePhotos.endPhotoShoot();
         this.photoShootInProgress = this.takePhotos.getPhotoShootInProgress();
         this.newPhotoShoot.emit('get new photos');
