@@ -20,16 +20,14 @@ export class PhotoContainerComponent implements OnInit {
       this.imageUrl = `${this.getPhotos.baseUrl}${
         this.deviceInfo.fileName
       }?${Date.now()}`;
-    }, 23000);
+    }, 1);
   }
-  ngOnChanges() {
-    setTimeout(() => {
+  ngOnInit(): void {
+    setInterval(() => {
       this.imageUrl = `${this.getPhotos.baseUrl}${
         this.deviceInfo.fileName
       }?${Date.now()}`;
-    }, 10000);
-  }
-  ngOnInit(): void {
+    }, 3000);
     this.imageUrl = `${this.getPhotos.baseUrl}${
       this.deviceInfo.fileName
     }?${Date.now()}`;
