@@ -13,6 +13,7 @@ export class UrlInputComponent implements OnInit {
   @Output()
   newPhotoShoot: EventEmitter<any>;
   url: string = '';
+  elementId: string = '';
   constructor(
     private _snackBar: MatSnackBar,
     private readonly getPhotos: GetPhotosService,
