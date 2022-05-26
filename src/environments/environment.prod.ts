@@ -1,4 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
   baseUrl: 'https://app-davzxh5bwq-uc.a.run.app/',
 };
