@@ -13,7 +13,7 @@ export class UrlInputComponent implements OnInit {
   @Output()
   newPhotoShoot: EventEmitter<any>;
   url: string = '';
-  elementId: string = '';
+  elementSelector: string = '';
   constructor(
     private _snackBar: MatSnackBar,
     private readonly getPhotos: GetPhotosService,
@@ -27,7 +27,7 @@ export class UrlInputComponent implements OnInit {
 
   createPhotos() {
     this.photoShootInProgress = true;
-    this.takePhotos.startPhotoShoot(this.url).subscribe(
+    this.takePhotos.startPhotoShoot(this.url, this.elementSelector).subscribe(
       (payload: any) => {
         this.takePhotos.endPhotoShoot();
         this.photoShootInProgress = this.takePhotos.getPhotoShootInProgress();

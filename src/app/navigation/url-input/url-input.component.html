@@ -18,13 +18,13 @@
     </button>
   </mat-form-field>
   <mat-form-field appearacne="fill">
-    <mat-label>Scroll To Element ID (optional)</mat-label>
+    <mat-label>Scroll to the selected element (optional)</mat-label>
     <input
       (keyup.enter)="createPhotos()"
-      placeholder="footer-id"
+      placeholder="#footer-id"
       matInput
       type="text"
-      [(ngModel)]="elementId"
+      [(ngModel)]="elementSelector"
     />
     <button
       matSuffix
