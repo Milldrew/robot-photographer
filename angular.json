@@ -80,6 +80,9 @@
             },
             "development": {
               "browserTarget": "client:build:development"
+            },
+            "local": {
+              "browserTarget": "client:build:local"
             }
           },
           "defaultConfiguration": "development"

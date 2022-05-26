@@ -12,7 +12,7 @@
       <a
         class="nav-item"
         mat-list-item
-        [href]="hashTag + singleDeviceInfo.fileName"
+        [href]="hashTag + singleDeviceInfo.fileName.slice(0, -4)"
         *ngFor="let singleDeviceInfo of deviceInfo"
         >{{ singleDeviceInfo.name }}</a
       >
@@ -39,6 +39,5 @@
       [deviceInfo]="singleDeviceInfo"
     >
     </app-photo-container>
-    <footer id="footer">click me</footer>
   </mat-sidenav-content>
 </mat-sidenav-container>

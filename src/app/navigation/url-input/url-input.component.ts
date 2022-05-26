@@ -31,12 +31,17 @@ export class UrlInputComponent implements OnInit {
       (payload: any) => {
         this.takePhotos.endPhotoShoot();
         this.photoShootInProgress = this.takePhotos.getPhotoShootInProgress();
+
+        this._snackBar.open(payload.responseStatus);
+        setTimeout(() => {
+          this._snackBar.dismiss();
+        }, 7000);
         this.newPhotoShoot.emit('get new photos');
       },
       (error) => {
         console.error(error);
         this._snackBar.open(
-          'Invalid URL remember to add http:// or https://',
+          'There was an unidentified server error',
           'DISMISS'
         );
         setTimeout(() => {

@@ -15,11 +15,11 @@ export class CreatePhotosService {
 
   httpOptions = new HttpHeaders({ 'Content-Type': 'application/json' });
 
-  startPhotoShoot(photoShootUrl: string, elementId: string) {
+  startPhotoShoot(photoShootUrl: string, elementSelector: string) {
     this.photoShootInProgress = true;
     return this.http.post(
       `${this.getPhotos.baseUrl}photographer`,
-      { url: photoShootUrl, elementId: elementId || '' },
+      { url: photoShootUrl, elementSelector: elementSelector || '' },
       { headers: this.httpOptions }
     );
   }
