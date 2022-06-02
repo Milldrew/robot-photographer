@@ -1,7 +1,11 @@
+@use "../../../responsive.scss" as responsive;
 :host {
   display: flex;
   justify-content: center;
   margin: 100px 100px;
+  @include responsive.for-size(XSmall) {
+    margin: 20px 0px;
+  }
 }
 
 mat-card-header {
