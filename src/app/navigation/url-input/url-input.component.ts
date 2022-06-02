@@ -32,7 +32,9 @@ export class UrlInputComponent implements OnInit {
         this.takePhotos.endPhotoShoot();
         this.photoShootInProgress = this.takePhotos.getPhotoShootInProgress();
 
-        this._snackBar.open(payload.responseStatus);
+        this._snackBar.open(payload.responseStatus, 'DISMISS', {
+          verticalPosition: 'top',
+        });
         setTimeout(() => {
           this._snackBar.dismiss();
         }, 7000);
