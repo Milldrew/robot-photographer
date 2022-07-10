@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  baseUrl: 'http://192.168.0.143:3000/',
+  baseUrl: 'https://photo-shoot-bmythg3mea-uc.a.run.app/',
 };
 
 /*
