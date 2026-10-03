@@ -26,19 +26,25 @@ export class UrlInputComponent implements OnInit {
   ngOnInit(): void {}
 
   createPhotos() {
+    if (this.photoShootInProgress) return;
+    // "example.com" is what people type; the service only takes http(s) URLs.
+    let url = this.url.trim();
+    if (!url) return;
+    if (!/^https?:\/\//i.test(url)) url = 'https://' + url;
+    this.url = url;
     this.photoShootInProgress = true;
-    this.takePhotos.startPhotoShoot(this.url, this.elementSelector).subscribe(
+    this.takePhotos.startPhotoShoot(url, this.elementSelector).subscribe(
       (payload: any) => {
         this.takePhotos.endPhotoShoot();
         this.photoShootInProgress = this.takePhotos.getPhotoShootInProgress();
-
-        this._snackBar.open(payload.responseStatus, 'DISMISS', {
+        const ok = /^succ?ess$/.test(payload.responseStatus);
+        this._snackBar.open(ok ? 'Photos ready ✓' : payload.responseStatus, 'DISMISS', {
           verticalPosition: 'top',
         });
         setTimeout(() => {
           this._snackBar.dismiss();
         }, 7000);
-        this.newPhotoShoot.emit('get new photos');
+        if (ok) this.newPhotoShoot.emit('get new photos');
       },
       (error) => {
         console.error(error);

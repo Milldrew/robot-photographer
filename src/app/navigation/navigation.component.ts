@@ -25,7 +25,10 @@ export class NavigationComponent {
   ) {}
   deviceInfo = this.getPhotos.deviceInfo;
   hashTag = '#';
+  /** True once this visitor has shot something. */
+  hasShot = false;
   getNewPhotos() {
+    this.hasShot = true;
     this.deviceInfo = this.getPhotos.deviceInfo.map((info) => ({ ...info }));
   }
 }

@@ -34,11 +34,24 @@
     </mat-toolbar>
     <!-- Add Content Here -->
     <app-url-input (newPhotoShoot)="getNewPhotos()"> </app-url-input>
-    <app-photo-container
-      [id]="singleDeviceInfo.fileName.slice(0, -4)"
-      *ngFor="let singleDeviceInfo of deviceInfo"
-      [deviceInfo]="singleDeviceInfo"
-    >
-    </app-photo-container>
+    <!-- Only this visitor's own shoot: the service keeps one shared set of
+         photos, so before you shoot it would show a stranger's. -->
+    <ng-container *ngIf="hasShot; else intro">
+      <app-photo-container
+        [id]="singleDeviceInfo.fileName.slice(0, -4)"
+        *ngFor="let singleDeviceInfo of deviceInfo"
+        [deviceInfo]="singleDeviceInfo"
+      >
+      </app-photo-container>
+      </ng-container>
+    <ng-template #intro>
+      <mat-card class="intro">
+        <mat-card-title>See a page on sixteen screens at once</mat-card-title>
+        <mat-card-content>
+          <p>Enter a web address and press <b>Shoot Photos</b>. A real browser on the server opens it and photographs it as an iPhone SE, iPhone 13 (every size), iPad mini, iPad and iPad Pro - upright and sideways - and at two desktop sizes.</p>
+          <p>Add a CSS selector to scroll a particular part of the page into view first.</p>
+        </mat-card-content>
+      </mat-card>
+    </ng-template>
   </mat-sidenav-content>
 </mat-sidenav-container>

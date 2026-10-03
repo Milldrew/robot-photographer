@@ -7,7 +7,7 @@ import { environment } from 'src/environments/environment';
 export class GetPhotosService {
   deviceInfo = [
     { fileName: '1366x768.png', name: '1366x768' },
-    { fileName: '1929x1080.png', name: '1929x1080' },
+    { fileName: '1920x1080.png', name: '1920x1080' },
     { fileName: 'i-pad-gen-7-landscape.png', name: 'I Pad Gen 7 landscape' },
     { fileName: 'i-pad-gen-7.png', name: 'I Pad Gen 7' },
     { fileName: 'i-pad-mini-landscape.png', name: 'I Pad Mini Landscape' },
